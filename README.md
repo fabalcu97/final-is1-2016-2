@@ -3,7 +3,7 @@
 ## Requisitos ##
 
 ### Fork y clonación del proyecto ###
-* Crear un _fork_ de este repositorio hacia una cuenta personal: https://bitbucket.org/hjneyra/practica-is1-2015-2/fork
+* Crear un _fork_ de este repositorio hacia una cuenta personal: https://github.com/hjneyra/final-is1-2016-2
 * Clonar el repositorio del cual hizo _fork_ en su computador.
 
 ### Importar el proyecto desde Eclipse ###
