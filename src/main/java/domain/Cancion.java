@@ -8,9 +8,9 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.SequenceGenerator;
+
 
 @Entity
 public class Cancion implements BaseEntity<Long>{
@@ -37,10 +37,12 @@ public class Cancion implements BaseEntity<Long>{
 	
 	@Column(length = 64)
 	private String genero;
+	@ManyToMany(mappedBy = "canciones")
+	private Collection<Playlist> albumSongs;
 	
 	@ManyToMany(mappedBy = "canciones")
-	private Collection<ListaCanciones> listsSongs;
-
+	private Collection<Album> playlistSongs;
+	
 	@Override
 	public Long getId() {
 		// TODO Auto-generated method stub
@@ -51,6 +53,70 @@ public class Cancion implements BaseEntity<Long>{
 	public void setId(Long id) {
 		// TODO Auto-generated method stub
 		
+	}
+
+	public String getNombre() {
+		return nombre;
+	}
+
+	public void setNombre(String nombre) {
+		this.nombre = nombre;
+	}
+
+	public Collection<Usuario> getUsuarios() {
+		return usuarios;
+	}
+
+	public void setUsuarios(Collection<Usuario> usuarios) {
+		this.usuarios = usuarios;
+	}
+
+	public Date getFecha() {
+		return fecha;
+	}
+
+	public void setFecha(Date fecha) {
+		this.fecha = fecha;
+	}
+
+	public double getCalificacion_prom() {
+		return calificacion_prom;
+	}
+
+	public void setCalificacion_prom(double calificacion_prom) {
+		this.calificacion_prom = calificacion_prom;
+	}
+
+	public int getReproducciones() {
+		return reproducciones;
+	}
+
+	public void setReproducciones(int reproducciones) {
+		this.reproducciones = reproducciones;
+	}
+
+	public String getGenero() {
+		return genero;
+	}
+
+	public void setGenero(String genero) {
+		this.genero = genero;
+	}
+
+	public Collection<Playlist> getAlbumSongs() {
+		return albumSongs;
+	}
+
+	public void setAlbumSongs(Collection<Playlist> albumSongs) {
+		this.albumSongs = albumSongs;
+	}
+
+	public Collection<Album> getPlaylistSongs() {
+		return playlistSongs;
+	}
+
+	public void setPlaylistSongs(Collection<Album> playlistSongs) {
+		this.playlistSongs = playlistSongs;
 	}
 	
 	

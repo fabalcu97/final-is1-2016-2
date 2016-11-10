@@ -1,19 +1,11 @@
 package domain;
 
 import java.util.Collection;
-import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.EnumType;
-import javax.persistence.Enumerated;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
-import javax.persistence.ManyToOne;
-import javax.persistence.SequenceGenerator;
 
 @Entity
 public class Artista extends Person implements BaseEntity<Long> {
@@ -31,13 +23,21 @@ public class Artista extends Person implements BaseEntity<Long> {
     @JoinTable(name="artista_album")
 	private Collection<Album> albumes;
 	
-	/* TOOO: Relationship between followers
-	 * 
-	private Collection<Person> seguidores;
+	/*
+	 * Los seguidores de artista se basan en los
+	 * seguidos de artista 
+	 */
+	@ManyToMany(mappedBy = "AArtistasSeguidos")
+	private Collection<Artista> AArtistasSeguidores;
+	@ManyToMany
+    @JoinTable(name="artista_aseguidos_aseguidores")
+	private Collection<Artista> AArtistasSeguidos;
 	
-	private Collection<Person> seguidos;
-	
-	*/
+	@ManyToMany(mappedBy = "UArtistasSeguidos")
+	private Collection<Usuario> AUsuariosSeguidores;
+	@ManyToMany
+    @JoinTable(name="artista_aseguidos_useguidores")
+	private Collection<Usuario> AUsuariosSeguidos;
 	
 	@Override
 	public Long getId() {
@@ -49,4 +49,70 @@ public class Artista extends Person implements BaseEntity<Long> {
 		super.id = id;
 	}
 
+	public boolean isActivo() {
+		return activo;
+	}
+
+	public void setActivo(boolean activo) {
+		this.activo = activo;
+	}
+
+	public boolean isVerificado() {
+		return verificado;
+	}
+
+	public void setVerificado(boolean verificado) {
+		this.verificado = verificado;
+	}
+
+	public String getInformacion() {
+		return informacion;
+	}
+
+	public void setInformacion(String informacion) {
+		this.informacion = informacion;
+	}
+
+	public Collection<Album> getAlbumes() {
+		return albumes;
+	}
+
+	public void setAlbumes(Collection<Album> albumes) {
+		this.albumes = albumes;
+	}
+
+	public Collection<Artista> getAArtistasSeguidores() {
+		return AArtistasSeguidores;
+	}
+
+	public void setAArtistasSeguidores(Collection<Artista> aArtistasSeguidores) {
+		AArtistasSeguidores = aArtistasSeguidores;
+	}
+
+	public Collection<Artista> getAArtistasSeguidos() {
+		return AArtistasSeguidos;
+	}
+
+	public void setAArtistasSeguidos(Collection<Artista> aArtistasSeguidos) {
+		AArtistasSeguidos = aArtistasSeguidos;
+	}
+
+	public Collection<Usuario> getAUsuariosSeguidores() {
+		return AUsuariosSeguidores;
+	}
+
+	public void setAUsuariosSeguidores(Collection<Usuario> aUsuariosSeguidores) {
+		AUsuariosSeguidores = aUsuariosSeguidores;
+	}
+
+	public Collection<Usuario> getAUsuariosSeguidos() {
+		return AUsuariosSeguidos;
+	}
+
+	public void setAUsuariosSeguidos(Collection<Usuario> aUsuariosSeguidos) {
+		AUsuariosSeguidos = aUsuariosSeguidos;
+	}
+
+	
+	
 }

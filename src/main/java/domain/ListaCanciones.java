@@ -1,18 +1,16 @@
 package domain;
 
-import java.util.Collection;
 import java.util.Date;
 
 import javax.persistence.Column;
-import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinTable;
-import javax.persistence.ManyToMany;
+import javax.persistence.MappedSuperclass;
 import javax.persistence.SequenceGenerator;
 
-@Entity
+
+@MappedSuperclass
 public abstract class ListaCanciones {
 	
 	@Id
@@ -25,10 +23,31 @@ public abstract class ListaCanciones {
 	
 	@Column(nullable = false)
 	private Date fecha = new Date();
+
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
+	}
+
+	public String getNombre() {
+		return nombre;
+	}
+
+	public void setNombre(String nombre) {
+		this.nombre = nombre;
+	}
+
+	public Date getFecha() {
+		return fecha;
+	}
+
+	public void setFecha(Date fecha) {
+		this.fecha = fecha;
+	}
 	
-	@ManyToMany
-    @JoinTable(name="listaCanciones_cancion")
-	private Collection<Cancion> canciones;
 	
-	
+		
 }

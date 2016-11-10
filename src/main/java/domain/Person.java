@@ -1,17 +1,13 @@
 package domain;
 
-import java.util.Collection;
-
 import javax.persistence.Column;
-import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinTable;
-import javax.persistence.ManyToMany;
+import javax.persistence.MappedSuperclass;
 import javax.persistence.SequenceGenerator;
 
-@Entity
+@MappedSuperclass
 public abstract class Person {
 
 	@Id
@@ -48,6 +44,32 @@ public abstract class Person {
 	public void setLastName(String lastName) {
 		this.lastName = lastName;
 	}
+
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
+	}
+
+	public String getCorreo() {
+		return correo;
+	}
+
+	public void setCorreo(String correo) {
+		this.correo = correo;
+	}
+
+	public String getContraseña() {
+		return contraseña;
+	}
+
+	public void setContraseña(String contraseña) {
+		this.contraseña = contraseña;
+	}
+	
+	
 
 
 }

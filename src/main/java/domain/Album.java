@@ -3,14 +3,8 @@ package domain;
 import java.util.Collection;
 
 import javax.persistence.Entity;
-import javax.persistence.EnumType;
-import javax.persistence.Enumerated;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.ManyToOne;
+import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
-import javax.persistence.SequenceGenerator;
 
 @Entity
 public class Album extends ListaCanciones implements BaseEntity<Long> {
@@ -28,5 +22,26 @@ public class Album extends ListaCanciones implements BaseEntity<Long> {
 		super.id = id;
 
 	}
+	
+	@ManyToMany
+    @JoinTable(name="album_cancion")
+	private Collection<Cancion> canciones;
 
+	public Collection<Artista> getAutores() {
+		return autores;
+	}
+
+	public void setAutores(Collection<Artista> autores) {
+		this.autores = autores;
+	}
+
+	public Collection<Cancion> getCanciones() {
+		return canciones;
+	}
+
+	public void setCanciones(Collection<Cancion> canciones) {
+		this.canciones = canciones;
+	}
+	
+	
 }
