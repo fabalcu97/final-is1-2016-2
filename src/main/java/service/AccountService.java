@@ -8,7 +8,6 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import repository.AccountRepository;
-import repository.PersonRepository;
 import domain.Account;
 import domain.Person;
 
@@ -18,34 +17,32 @@ public class AccountService {
 	@Autowired
 	AccountRepository accountRepository;
 	
-	@Autowired
-	PersonRepository personRepository;
 
 	@Transactional
 	public void save(Account account) {
 		accountRepository.persist(account);
 	}
 
-	@Transactional
+	/*@Transactional
 	public void createAccount(Collection<Long> ownerIds, Account account) {
 		if (!ownerIds.isEmpty()) {
 			Collection<Person> owners = personRepository.findByIds(ownerIds);
 			account.setOwners(owners);
 			accountRepository.persist(account);
 		}
-	}
+	}*/
 
 	public Collection<Account> getAccountsByPersonId(Long personId) {
 		return accountRepository.findByPersonId(personId);
 	}
 
-	public Collection<Account> getAccountsByPersonId2(Long personId) {
+	/*public Collection<Account> getAccountsByPersonId2(Long personId) {
 		Person person = personRepository.find(personId);
 		if (person != null) {
 			return person.getAccounts();
 		}
 		return Collections.emptyList();
-	}
+	}*/
 
 	public Collection<Account> getAccounts() {
 		return accountRepository.findAll();

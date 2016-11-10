@@ -7,7 +7,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import service.AccountService;
-import service.TransferService;
 import domain.Account;
 import form.CreateAccountForm;
 import form.TransferForm;
@@ -16,16 +15,8 @@ import form.TransferForm;
 public class BankController {
 
 	@Autowired
-	TransferService transferService;
-
-	@Autowired
 	AccountService accountService;
 
-	@RequestMapping(value = "/transfer", method = RequestMethod.POST)
-	String transfer(@ModelAttribute TransferForm transfer, ModelMap model) {
-		transferService.transfer(transfer.getSourceAccountNumber(), transfer.getTargetAccountNumber(), transfer.getAmount());
-		return "home";
-	}
 
 	@RequestMapping(value = "/transfer", method = RequestMethod.GET)
 	String showTransfer(@ModelAttribute TransferForm transfer, ModelMap model) {
@@ -49,11 +40,11 @@ public class BankController {
 		return "add-account";
 	}
 	
-	@RequestMapping(value = "/register-account", method = RequestMethod.POST)
+	/*@RequestMapping(value = "/register-account", method = RequestMethod.POST)
 	String createAccount(@ModelAttribute CreateAccountForm createAccount, ModelMap model) {
 		accountService.createAccount(createAccount.getOwnerIds(), createAccount.getAccount());
 		return "add-account";
-	}
+	}*/
 
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	String home(ModelMap model) {

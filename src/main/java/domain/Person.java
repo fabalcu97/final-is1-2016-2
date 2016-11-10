@@ -12,32 +12,26 @@ import javax.persistence.ManyToMany;
 import javax.persistence.SequenceGenerator;
 
 @Entity
-public class Person implements BaseEntity<Long> {
+public abstract class Person {
 
 	@Id
 	@SequenceGenerator(name = "person_id_generator", sequenceName = "person_id_seq", allocationSize = 1)
 	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "person_id_generator")
-	private Long id;
+	protected Long id;
 
 	@Column(length = 64)
 	private String firstName;
 
 	@Column(length = 64)
 	private String lastName;
+	
+	@Column(length = 64)
+	private String correo;
+	
+	@Column(length = 64)
+	private String contraseña;
 
-	@ManyToMany
-    @JoinTable(name="person_account")
-	private Collection<Account> accounts;
-
-	@Override
-	public Long getId() {
-		return id;
-	}
-
-	@Override
-	public void setId(Long id) {
-		this.id = id;
-	}
+	
 
 	public String getFirstName() {
 		return firstName;
@@ -55,12 +49,5 @@ public class Person implements BaseEntity<Long> {
 		this.lastName = lastName;
 	}
 
-	public Collection<Account> getAccounts() {
-		return accounts;
-	}
-
-	public void setAccounts(Collection<Account> accounts) {
-		this.accounts = accounts;
-	}
 
 }
