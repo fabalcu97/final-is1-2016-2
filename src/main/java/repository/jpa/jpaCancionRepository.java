@@ -25,7 +25,7 @@ public class jpaCancionRepository extends JpaBaseRepository<Cancion, Long> imple
 	@Override
 	public Collection<Cancion> topTen() {
 		//SELECT a.id, a.number, a.date FROM tbl_account a WHERE a.number = :number
-		String jpaQuery = "SELECT a FROM Cancion a ORDER BY a.reproducciones DESC LIMIT 10";
+		String jpaQuery = "SELECT a FROM Cancion a ORDER BY a.calificacion_prom DESC LIMIT 10";
 		TypedQuery<Cancion> query = entityManager.createQuery(jpaQuery, Cancion.class);
 		return query.getResultList();
 	}
@@ -43,6 +43,13 @@ public class jpaCancionRepository extends JpaBaseRepository<Cancion, Long> imple
 		String jpaQuery = "SELECT a FROM Cancion a JOIN a.albumSongs p WHERE p.id = :albumId";
 		TypedQuery<Cancion> query = entityManager.createQuery(jpaQuery, Cancion.class);
 		query.setParameter("albumId", albumId);
+		return query.getResultList();
+	}
+
+	@Override
+	public Collection<Cancion> topCien() {
+		String jpaQuery = "SELECT a FROM Cancion a ORDER BY a.reproducciones DESC LIMIT 100";
+		TypedQuery<Cancion> query = entityManager.createQuery(jpaQuery, Cancion.class);
 		return query.getResultList();
 	}
 

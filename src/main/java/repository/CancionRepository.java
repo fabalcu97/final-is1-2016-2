@@ -11,4 +11,5 @@ public interface CancionRepository extends BaseRepository<Cancion, Long> {
 	Collection<Cancion> findByName(String name);
 	Collection<Cancion> topTen();
 	Collection<Cancion> findByAlbumId(Long albumId);
+	Collection<Cancion> topCien();
 }
