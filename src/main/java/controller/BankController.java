@@ -7,7 +7,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import service.AccountService;
+import service.UsuarioService;
+import repository.UsuarioRepository;
 import domain.Account;
+import domain.Usuario;
 import form.CreateAccountForm;
 import form.TransferForm;
 
@@ -16,8 +19,14 @@ public class BankController {
 
 	@Autowired
 	AccountService accountService;
+	
+	@Autowired
+	UsuarioService usuarioService;
+	
+	@Autowired
+	UsuarioRepository usuarioRepository;
 
-
+	/*
 	@RequestMapping(value = "/transfer", method = RequestMethod.GET)
 	String showTransfer(@ModelAttribute TransferForm transfer, ModelMap model) {
 		return "transfer";
@@ -34,7 +43,9 @@ public class BankController {
 		model.addAttribute("accounts", accountService.getAccounts());
 		return "account-list";
 	}
+	*/
 
+	/*
 	@RequestMapping(value = "/add-account", method = RequestMethod.GET)
 	String addAccount(ModelMap model) {
 		return "add-account";
