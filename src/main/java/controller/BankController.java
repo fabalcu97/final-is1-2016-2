@@ -31,7 +31,7 @@ public class BankController {
 	String showTransfer(@ModelAttribute TransferForm transfer, ModelMap model) {
 		return "transfer";
 	}
-
+	*/
 	@RequestMapping(value = "/account", method = RequestMethod.POST)
 	String saveAccount(@ModelAttribute Account account, ModelMap model) {
 		accountService.save(account);
@@ -43,14 +43,14 @@ public class BankController {
 		model.addAttribute("accounts", accountService.getAccounts());
 		return "account-list";
 	}
-	*/
+	
 
-	/*
+	
 	@RequestMapping(value = "/add-account", method = RequestMethod.GET)
 	String addAccount(ModelMap model) {
 		return "add-account";
 	}
-	
+	/*
 	/*@RequestMapping(value = "/register-account", method = RequestMethod.POST)
 	String createAccount(@ModelAttribute CreateAccountForm createAccount, ModelMap model) {
 		accountService.createAccount(createAccount.getOwnerIds(), createAccount.getAccount());
