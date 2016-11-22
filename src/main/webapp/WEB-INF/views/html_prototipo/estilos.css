@@ -1,0 +1,17 @@
+.full {
+    background: url(images/background.png) no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    background-size: cover;
+    -o-background-size: cover;
+    height:100%;
+}
+
+.btn-primary {
+    background: #0061ff;
+    color: #ffffff;
+}
+
+label, h1 {
+	color: #ffffff;
+}
