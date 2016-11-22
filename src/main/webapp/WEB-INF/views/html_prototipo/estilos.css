@@ -12,6 +12,24 @@
     color: #ffffff;
 }
 
-label, h1 {
+.btn-default {
+    background: #141414;
+	border-color: #141414;
+    color: #ffffff;
+}
+
+.btn.btn-square {
+	border-radius: 0;
+}
+
+.color-black {
+	background-color: #111111;
+}
+
+html body {
+	background-color: #141414;
+}
+
+label, h1, h2, h3 {
 	color: #ffffff;
 }
