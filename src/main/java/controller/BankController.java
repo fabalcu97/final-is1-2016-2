@@ -8,8 +8,10 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import service.AccountService;
 import service.UsuarioService;
+import service.CancionService;
 import repository.UsuarioRepository;
 import domain.Account;
+import domain.Cancion;
 import domain.Usuario;
 import form.CreateAccountForm;
 import form.TransferForm;
@@ -18,6 +20,9 @@ import form.TransferForm;
 public class BankController {
 
 	@Autowired
+	CancionService cancionService;
+	
+	@Autowired
 	AccountService accountService;
 	
 	@Autowired
@@ -25,7 +30,13 @@ public class BankController {
 	
 	@Autowired
 	UsuarioRepository usuarioRepository;
-
+	
+	@RequestMapping(value = "/canciones", method = RequestMethod.GET)
+	String listCanciones(ModelMap model) {
+		model.addAttribute("canciones", cancionService.getCanciones());
+		return "cancion-list";
+	}
+	
 	/*
 	@RequestMapping(value = "/transfer", method = RequestMethod.GET)
 	String showTransfer(@ModelAttribute TransferForm transfer, ModelMap model) {

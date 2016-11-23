@@ -17,7 +17,7 @@
 						<h2 class = "text-right"> Usuario </h2> <br>
 					</div>
 					<div class = 'col-sm-1'>
-						<img src = "images/icon_user.png" class = "img-responsive">
+						<img src = "https://s26.postimg.org/ekjb8woh5/icon_user.png" class = "img-responsive">
 					</div>
 				</div>
 			</div>
@@ -26,8 +26,17 @@
 		<div class = "container">
 			<div class = "row">
 				<div class = 'col-sm-9 logo'>
-					<div class = "container-fluid">
-					</div>
+					<table class=>
+						<tr>
+							<th> Canciones </th>
+						</tr>
+						
+						{% for cancion in canciones %}
+						<tr>
+							<td> {{ cancion.nombre }} </td>
+						</tr>
+						{% endfor %}
+					</table>
 				</div>
 				<div class = 'col-sm-3 color-black'>
 					<button type = "button" class = "btn btn-default btn-square btn-block"> Cuenta </button>
@@ -38,7 +47,7 @@
 					<button type = "button" class = "btn btn-default btn-square btn-block"> Siguiendo </button>
 					<button type = "button" class = "btn btn-default btn-square btn-block"> Seguidores </button>
 					<br>
-					<img src = "images/banner.png" class = "img-responsive">
+					<img src = "https://s26.postimg.org/c1xm882qx/banner.png" class = "img-responsive">
 					<br>
 				</div>
 			</div>

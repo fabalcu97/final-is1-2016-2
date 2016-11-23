@@ -29,6 +29,13 @@ public class jpaCancionRepository extends JpaBaseRepository<Cancion, Long> imple
 		TypedQuery<Cancion> query = entityManager.createQuery(jpaQuery, Cancion.class);
 		return query.getResultList();
 	}
+	
+	@Override
+	public Collection<Cancion> getTodo() {
+		String jpaQuery = "SELECT c FROM Cancion c";
+		TypedQuery<Cancion> query = entityManager.createQuery(jpaQuery, Cancion.class);
+		return query.getResultList();
+	}
 
 	@Override
 	public Collection<Cancion> findByName(String name) {
