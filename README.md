@@ -8,3 +8,5 @@ Modificar el usurio y contraseña de postgres de ser necesario en /IS1_trabajo_f
 
 Crear una base de datos de nombre spotify
 
+Rama Fritz
+
