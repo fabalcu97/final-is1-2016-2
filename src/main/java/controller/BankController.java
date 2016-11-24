@@ -7,10 +7,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import service.AccountService;
+import service.AlbumService;
 import service.UsuarioService;
 import service.CancionService;
 import repository.UsuarioRepository;
 import domain.Account;
+import domain.Album;
 import domain.Cancion;
 import domain.Usuario;
 import form.CreateAccountForm;
@@ -21,6 +23,9 @@ public class BankController {
 
 	@Autowired
 	CancionService cancionService;
+	
+	@Autowired
+	AlbumService albumService;
 	
 	@Autowired
 	AccountService accountService;
@@ -35,6 +40,12 @@ public class BankController {
 	String listCanciones(ModelMap model) {
 		model.addAttribute("canciones", cancionService.getCanciones());
 		return "cancion-list";
+	}
+	
+	@RequestMapping(value = "/albumes", method = RequestMethod.GET)
+	String listAlbumes(ModelMap model) {
+		model.addAttribute("albumes", albumService.getAlbumes());
+		return "album-list";
 	}
 	
 	/*
