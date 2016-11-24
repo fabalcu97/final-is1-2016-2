@@ -1,0 +1,35 @@
+.full {
+    background: url(https://s26.postimg.org/mbuzacmax/background.png) no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    background-size: cover;
+    -o-background-size: cover;
+    height:100%;
+}
+
+.btn-primary {
+    background: #0061ff;
+    color: #ffffff;
+}
+
+.btn-default {
+    background: #141414;
+	border-color: #141414;
+    color: #ffffff;
+}
+
+.btn.btn-square {
+	border-radius: 0;
+}
+
+.color-black {
+	background-color: #111111;
+}
+
+html body {
+	background-color: #141414;
+}
+
+label, h1, h2, h3 {
+	color: #ffffff;
+}

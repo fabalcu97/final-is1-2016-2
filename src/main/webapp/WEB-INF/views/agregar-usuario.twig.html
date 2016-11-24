@@ -1,0 +1,43 @@
+<html>
+<head>
+<title>Usuario</title>
+</head>
+<body>
+	<form action="usuario" method="POST">
+		<table>
+			<tbody>
+				<tr>
+					<td>ID</td>
+					<td><input type="hidden" name="id" value="{{usuario.id}}" />{{usuario.id}}</td>
+				</tr>
+				
+				<tr>
+					<td>Password</td>
+					<td><input type="text" name="contraseña"/></td>
+				</tr>
+				
+				<tr>
+					<td>Nombres</td>
+					<td><input type="text" name="first_name"/></td>
+				</tr>
+				
+				<tr>
+					<td>Apellidos</td>
+					<td><input type="text" name="last_name"/></td>
+				</tr>
+				
+				<tr>
+					<td>Correo</td>
+					<td><input type="text" name="correo"/></td>
+				</tr>
+				
+				<input type="hidden" name="activo" value="True" />			
+				
+			</tbody>
+		</table>
+		<br>
+		<input type="submit" value="Save" />
+		<input type="button" value="Cancel" onclick="history.back();" />
+	</form>
+</body>
+</html>
