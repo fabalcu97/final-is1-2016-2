@@ -1,7 +1,5 @@
 package repository.jpa;
 
-import java.util.Collection;
-
 import javax.persistence.TypedQuery;
 
 import org.springframework.stereotype.Repository;

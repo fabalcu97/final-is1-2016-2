@@ -17,12 +17,16 @@ public class UsuarioService {
 	UsuarioRepository usuarioRepository;
 	
 	@Transactional
-	public void save(Usuario usuario) {
+	public boolean save(Usuario usuario) {
+		if( usuarioRepository.findById(usuario.getId()) != null){
+			return false;
+		}
 		usuarioRepository.persist(usuario);
+		return true;
 	}
 	
 	public Collection<Usuario> getUsuarios() {
 		return usuarioRepository.findAll();
 	}
-	
+
 }
