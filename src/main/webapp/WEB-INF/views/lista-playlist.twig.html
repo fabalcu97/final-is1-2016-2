@@ -1,0 +1,30 @@
+<html>
+<head>
+<title>Usuario</title>
+</head>
+<body>
+	<table class=>
+		<thead>
+			<tr>
+				<th>ID</th>
+				<th>Fecha</th>
+				<th>Nombre</th>
+				<th>Autor</th>
+			</tr>
+		</thead>
+		
+		<tbody>
+	{% for playlist in playlists %}
+			<tr>
+				<td>{{ playlist.id }}</td>
+				<td>{{ playlist.fecha }}</td>
+				<td>{{ playlist.nombre }}</td>
+				<td>{{ playlist.autor }}</td>
+			</tr>
+	{% endfor %}
+        </tbody>
+      </table>
+      <br />
+      <a href="agregar-playlist">Agregar Playlist</a>
+</body>
+</html>

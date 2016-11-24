@@ -2,7 +2,10 @@ package repository;
 
 import java.util.Collection;
 
+import domain.Account;
 import domain.BaseEntity;
+import domain.Playlist;
+import domain.Usuario;
 
 public interface BaseRepository<T extends BaseEntity<K>, K> {
 
