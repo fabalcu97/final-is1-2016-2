@@ -60,4 +60,12 @@ public class jpaCancionRepository extends JpaBaseRepository<Cancion, Long> imple
 		return query.getResultList();
 	}
 
+	@Override
+	public Collection<Cancion> findByPlaylistId(Long albumId) {
+		String jpaQuery = "SELECT a FROM Cancion a JOIN a.playlistSongs p WHERE p.id = :albumId";
+		TypedQuery<Cancion> query = entityManager.createQuery(jpaQuery, Cancion.class);
+		query.setParameter("albumId", albumId);
+		return query.getResultList();
+	}
+	
 }

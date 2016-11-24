@@ -15,7 +15,12 @@ public class CancionService {
 
 	@Autowired
 	CancionRepository cancionRepository;
-
+	
+	@Transactional
+	public void save(Cancion cancion) {
+		cancionRepository.persist(cancion);
+	}
+	
 	public Collection<Cancion> getCanciones(){
 		return cancionRepository.getTodo();
 	}
