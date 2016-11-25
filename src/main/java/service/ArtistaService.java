@@ -25,7 +25,11 @@ public class ArtistaService {
 		return true;
 	}
 	
-	public Collection<Artista> getArtista() {
+	public Artista get(Long id) {
+		return artistaRepository.find(id);
+	}
+	
+	public Collection<Artista> getAll() {
 		return artistaRepository.findAll();
 	}
 	

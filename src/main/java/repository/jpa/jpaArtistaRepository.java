@@ -15,7 +15,7 @@ public class jpaArtistaRepository extends JpaBaseRepository<Artista, Long> imple
 
 	@Override
 	public Artista findById(Long id) {
-		String jpaQuery = "SELECT a FROM artista a WHERE a.id = :id";
+		String jpaQuery = "SELECT a FROM Artista a WHERE a.id = :id";
 		TypedQuery<Artista> query = entityManager.createQuery(jpaQuery, Artista.class);
 		query.setParameter("id", id);
 		return getFirstResult(query);

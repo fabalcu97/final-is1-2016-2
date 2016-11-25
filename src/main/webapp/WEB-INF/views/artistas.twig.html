@@ -1,0 +1,30 @@
+<html>
+<head>
+<title>Artistas</title>
+</head>
+<body>
+	<table class=>
+		<thead>
+			<tr>
+				<th>ID</th>
+				<th>Last Name</th>
+				<th>First Name</th>
+				<th>Actions</th>
+			</tr>
+		</thead>
+		
+		<tbody>
+	{% for artista in artistas %}
+			<tr>
+				<td>{{ artista.id }}</td>
+				<td>{{ artista.lastName }}</td>
+				<td>{{ artista.firstName }}</td>
+				<td><a href="artista?id={{ artista.id }}">Ver</a> | <a href="agregar-artista?id={{artista.id }}">Modificar</a> </td>
+			</tr>
+	{% endfor %}
+        </tbody>
+      </table>
+      <br />
+      <a href="agregar-artista">Agregar Nuevo Artista</a>
+</body>
+</html>
