@@ -1,0 +1,47 @@
+<html>
+<head>
+<title>Artsta</title>
+</head>
+<body>
+	<form action="artista" method="POST">
+		<table>
+			<tbody>
+				<tr>
+					<td>ID</td>
+					<td><input type="hidden" name="id" value="{{artista.id}}" />{{artista.id}}</td>
+				</tr>
+				
+				<tr>
+					<td>Password</td>
+					<td><input type="text" name="contraseña"/></td>
+				</tr>
+				
+				<tr>
+					<td>Nombres</td>
+					<td><input type="text" name="firstName"/></td>
+				</tr>
+				
+				<tr>
+					<td>Apellidos</td>
+					<td><input type="text" name="lastName"/></td>
+				</tr>
+				
+				<tr>
+					<td>Correo</td>
+					<td><input type="text" name="correo"/></td>
+				</tr>
+				<tr>
+					<td>Información</td>
+					<td><input type="textarea" name="informacion"/></td>
+				</tr>
+				
+				<input type="hidden" name="activo" value="True" />			
+				
+			</tbody>
+		</table>
+		<br>
+		<input type="submit" value="Save" />
+		<input type="button" value="Cancel" onclick="history.back();" />
+	</form>
+</body>
+</html>
