@@ -23,6 +23,23 @@ public class UsuarioController {
 	@Autowired
 	UsuarioService usuarioService;
 
+	@RequestMapping(value = "/usuario-list", method = RequestMethod.GET)
+	String showList(ModelMap model) {
+	model.addAttribute("usuarios", usuarioService.getAll());
+	return "usuario-list";
+				
+	}
+	
+	@RequestMapping(value = "/usuario-list", method = RequestMethod.POST)
+	String showList(Usuario usuario , ModelMap model) {
+		System.out.println("saving: " + usuario.getId());
+		usuarioService.save(usuario);
+		model.addAttribute("usuarios", usuarioService.getAll());
+		return "usuario-list";
+				
+	}
+	
+	
 	@RequestMapping(value = "/usuario", method = RequestMethod.POST)
 	String saveUsuario(@ModelAttribute Usuario usuario, ModelMap model) {
 		System.out.println("saving: " + usuario.getId());
@@ -45,7 +62,7 @@ public class UsuarioController {
 		} else {
 			Collection<Usuario> usuarios = usuarioService.getAll();
 			model.addAttribute("usuarios", usuarios);
-			return "usuarios";
+			return "usuario";
 		}
 	}
 }
