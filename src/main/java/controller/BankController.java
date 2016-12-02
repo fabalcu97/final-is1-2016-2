@@ -8,11 +8,13 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import service.AccountService;
 import service.AlbumService;
+import service.ArtistaService;
 import service.UsuarioService;
 import service.CancionService;
 import repository.UsuarioRepository;
 import domain.Account;
 import domain.Album;
+import domain.Artista;
 import domain.Cancion;
 import domain.Usuario;
 import form.CreateAccountForm;
@@ -32,6 +34,9 @@ public class BankController {
 	
 	@Autowired
 	UsuarioService usuarioService;
+	
+	@Autowired
+	ArtistaService artistaService;
 	
 	@Autowired
 	UsuarioRepository usuarioRepository;
@@ -74,7 +79,47 @@ public class BankController {
 	}*/
 
 	@RequestMapping(value = "/", method = RequestMethod.GET)
-	String home(ModelMap model) {
+	String index(ModelMap model) {
+		Usuario usuario = new Usuario();
+		Artista artista = new Artista();
+		model.addAttribute("usuario", usuario);
+		model.addAttribute("artista", artista);
+		return "index";
+	}
+	
+	@RequestMapping(value = "/home", method = RequestMethod.POST)
+	String login(@ModelAttribute Usuario usuario, @ModelAttribute Artista artista, ModelMap model) {
+		usuario = usuarioService.login(usuario.getCorreo(), usuario.getContraseña());
+		artista = artistaService.login(artista.getCorreo(), artista.getContraseña());
+		
+		if(usuario==null && artista==null){
+			
+			usuario = new Usuario();
+			artista = new Artista();
+			model.addAttribute("usuario", usuario);
+			model.addAttribute("artista", artista);
+			return "index";
+		}
+		
+		if(usuario==null && artista!=null){
+			model.addAttribute("rank", "artista");
+			
+		}
+		else if(artista==null && usuario!=null){
+			
+			if(usuario.getFirstName()=="admin"){
+				model.addAttribute("rank", "administrador");
+			}
+			else{
+				model.addAttribute("rank", "usuario");
+			}
+		}
+		
 		return "home";
+	}
+	
+	@RequestMapping(value = "/register", method = RequestMethod.GET)
+	String register(ModelMap model) {
+		return "register";
 	}
 }

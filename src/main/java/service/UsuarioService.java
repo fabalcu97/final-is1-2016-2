@@ -33,5 +33,9 @@ public class UsuarioService {
 	public Collection<Usuario> getAll() {
 		return usuarioRepository.findAll();
 	}
+	
+	public Usuario login(String correo, String contraseña) {
+		return usuarioRepository.login(correo,contraseña);
+	}
 
 }

@@ -20,4 +20,13 @@ public class jpaUsuarioRepository extends JpaBaseRepository<Usuario, Long> imple
 		//falta ultimas canciones reproducidas
 	}
 
+	@Override
+	public Usuario login(String correo, String contraseña) {
+		String jpaQuery = "SELECT a FROM Usuario a WHERE a.correo = :correo AND a.contraseña = :contraseña";
+		TypedQuery<Usuario> query = entityManager.createQuery(jpaQuery, Usuario.class);
+		query.setParameter("correo", correo);
+		query.setParameter("contraseña", contraseña);
+		return getFirstResult(query);
+	}
+
 }

@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import domain.Artista;
+import domain.Usuario;
 import repository.ArtistaRepository;
 
 @Service
@@ -33,4 +34,7 @@ public class ArtistaService {
 		return artistaRepository.findAll();
 	}
 	
+	public Artista login(String correo, String contraseña) {
+		return artistaRepository.login(correo,contraseña);
+	}
 }

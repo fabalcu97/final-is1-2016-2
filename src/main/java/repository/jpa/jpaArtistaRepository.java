@@ -8,6 +8,7 @@ import org.springframework.stereotype.Repository;
 
 import repository.ArtistaRepository;
 import domain.Artista;
+import domain.Usuario;
 
 
 @Repository
@@ -20,5 +21,14 @@ public class jpaArtistaRepository extends JpaBaseRepository<Artista, Long> imple
 		query.setParameter("id", id);
 		return getFirstResult(query);
 
+	}
+
+	@Override
+	public Artista login(String correo, String contraseña) {
+		String jpaQuery = "SELECT a FROM Artista a WHERE a.correo = :correo AND a.contraseña = :contraseña";
+		TypedQuery<Artista> query = entityManager.createQuery(jpaQuery, Artista.class);
+		query.setParameter("correo", correo);
+		query.setParameter("contraseña", contraseña);
+		return getFirstResult(query);
 	}
 }
