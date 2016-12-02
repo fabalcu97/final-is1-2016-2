@@ -19,22 +19,17 @@ public class UsuarioController {
 	@Autowired
 	UsuarioService usuarioService;
 
-	@RequestMapping(value = "/usuario", method = RequestMethod.POST)
+	@RequestMapping(value = "/add-usuario", method = RequestMethod.POST)
 	String saveAccount(@ModelAttribute Usuario usuario, ModelMap model) {
 		usuarioService.save(usuario);
 		model.addAttribute("usuarios", usuarioService.getUsuarios());
-		return "lista-usuarios";
+		return "agregar-usuario";
 	}
 		
 	@RequestMapping(value = "/usuario", method = RequestMethod.GET)
 	String showUsuario(ModelMap model) {
 		model.addAttribute("usuarios", usuarioService.getUsuarios());
 		return "lista-usuarios";
-	}
-	
-	@RequestMapping(value = "/agregar-usuario", method = RequestMethod.GET)
-	String saveUsuario(ModelMap model){
-		return "agregar-usuario";
 	}
 	
 	
