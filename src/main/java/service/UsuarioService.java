@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import domain.Artista;
 import domain.Usuario;
 import repository.UsuarioRepository;
 
@@ -25,7 +26,11 @@ public class UsuarioService {
 		return true;
 	}
 	
-	public Collection<Usuario> getUsuarios() {
+	public Usuario get(Long id) {
+		return usuarioRepository.find(id);
+	}
+	
+	public Collection<Usuario> getAll() {
 		return usuarioRepository.findAll();
 	}
 
