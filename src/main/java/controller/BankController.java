@@ -42,12 +42,6 @@ public class BankController {
 		return "cancion-list";
 	}
 	
-	@RequestMapping(value = "/albumes", method = RequestMethod.GET)
-	String listAlbumes(ModelMap model) {
-		model.addAttribute("albumes", albumService.getAlbumes());
-		return "album-list";
-	}
-	
 	/*
 	@RequestMapping(value = "/transfer", method = RequestMethod.GET)
 	String showTransfer(@ModelAttribute TransferForm transfer, ModelMap model) {

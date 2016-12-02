@@ -27,16 +27,25 @@
 			<div class = "row">
 				<div class = 'col-sm-9 logo'>
 					<table class=>
-						<tr>
-							<th> Albumes </th>
-						</tr>
-						
-						{% for album in albumes %}
-						<tr>
-							<td> {{ album.nombre }} </td>
-						</tr>
-						{% endfor %}
+						<thead>
+							<tr>
+								<th>ID</th>
+								<th>Nombre</th>
+								<th>Actions</th>
+							</tr>
+						</thead>
+						<tbody>
+							{% for album in albumes %}
+							<tr>
+								<td> {{ album.id }} </td>
+								<td> {{ album.nombre }} </td>
+								<td><a href="album?id={{ album.id }}">Ver</a> | <a href="agregar-album?id={{album.id }}">Modificar</a> </td>
+							</tr>
+							{% endfor %}
+						</tbody>
 					</table>
+					<br />
+     				<a href="agregar-album">Agregar Nuevo Album</a>
 				</div>
 				<div class = 'col-sm-3 color-black'>
 					<button type = "button" class = "btn btn-default btn-square btn-block"> Cuenta </button>
