@@ -1,0 +1,89 @@
+<html>
+<head>
+<title>Usuario</title>
+</head>
+<body>
+	<table class=>
+		<thead>
+		</thead>
+		
+		<tbody>
+			<tr>
+				<th>ID</th>
+				<td>{{ usuario.id }}</td>
+			</tr>
+			<tr>
+				<th>Nombre</th>
+				<td>{{ usuario.firstName }}</td>
+			</tr>
+			<tr>
+				<th>Apellido</th>
+				<td>{{ usuario.lastName }}</td>
+			</tr>
+			
+			<tr>
+				<th>Playlists</th>
+				<td>
+					<ul>
+				{% for playlist in usuario.playlists %}
+					<li><a href="playlist?id={{ playlist.id }}">{{playlist.nombre}}</a></li>
+				{% endfor %}
+					</ul>
+				</td>
+			</tr>
+			<tr>
+				<th>Canciones Favoritas</th>
+				<td>
+					<ul>
+				{% for cancion in usuario.favoritas %}
+					<li><a href="cancion?id={{ cancion.id }}">{{cancion.nombre}}</a></li>
+				{% endfor %}
+					</ul>
+				</td>
+			</tr>
+			<tr>
+				<th>Artistas Seguidores</th>
+				<td>
+					<ul>
+				{% for a in usuario.UArtistasSeguidores %}
+					<li><a href="artista?id={{ a.id }}">{{a.firstName}} {{a.lastName}}</a></li>
+				{% endfor %}
+					</ul>
+				</td>
+			</tr>
+			<tr>
+				<th>Usuarios Seguidores</th>
+				<td>
+					<ul>
+				{% for u in usuario.UUsuariosSeguidores %}
+					<li><a href="usuario?id={{ u.id }}">{{u.firstName}} {{u.lastName}}</a></li>
+				{% endfor %}
+					</ul>
+				</td>
+			</tr>
+			<tr>
+				<th>Artistas Seguidos</th>
+				<td>
+					<ul>
+				{% for a in usuario.UArtistasSeguidos %}
+					<li><a href="artista?id={{ a.id }}">{{a.firstName}} {{a.lastName}}</a></li>
+				{% endfor %}
+					</ul>
+				</td>
+			</tr>
+			<tr>
+				<th>Usuarios Seguidos</th>
+				<td>
+					<ul>
+				{% for u in usuario.UUsuariosSeguidos %}
+					<li><a href="usuario?id={{ u.id }}">{{u.firstName}} {{u.lastName}}</a></li>
+				{% endfor %}
+					</ul>
+				</td>
+			</tr>
+        </tbody>
+      </table>
+      <br />
+      <a href="agregar-usuario?id={{usuario.id}}">Modificar</a> |<a href="agregar-usuario">Agregar Nuevo Usuario</a> | <a href="usuario">Listar</a>
+</body>
+</html>
