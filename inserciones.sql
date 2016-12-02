@@ -32,7 +32,7 @@ INSERT INTO cancion (nombre, genero, reproducciones, fecha, califcacion_prom) VA
 ('I Bet You Look Good On The Dance Floor', 'Alternativa/independiente, Rock', 5642, 01-01-2005, 4.5),
 ('I need your love', 'Electro house', 9875, 01-01-2012, 4),
 ('Runaway (U & I)', 'House', 11354, 01-01-2015, 4.5),
-('Si Me Voy', 'rock', 1687, 01-01-2010, 3.5),
+('Si Me Voy', 'rock', 1687, 01-01-2010, 3.5);
 
 
 INSERT INTO album (nombre, fecha) VALUES
@@ -45,4 +45,4 @@ INSERT INTO album (nombre, fecha) VALUES
 ('Whatever People Say I Am, That\'s What I\'m Not',01-01-2006),
 ('18 Months',01-01-2012),
 ('Pharmacy',01-01-2015),
-('Eres Nadie EP',01-01-2010),
+('Eres Nadie EP',01-01-2010);
