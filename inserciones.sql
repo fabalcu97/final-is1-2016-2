@@ -23,7 +23,26 @@ INSERT INTO artista (first_name, last_name, activo, correo, contrasena ) VALUES
 ('Martha', 'Diaz', 1, 'martha.diaz@gmail.com', '1234');
 
 INSERT INTO cancion (nombre, genero, reproducciones, fecha, califcacion_prom) VALUES
-('Bombardero', 'rock', 3000, 01-01-2001, 4.5),
+('Bring \'Em Down', 'Alternativa/independiente, Rock', 4582, 01-01-2012, 4.5),
+('Be quiet and drive(far away)', 'Heavy metal', 2150, 01-01-1997, 5),
+('The hell song', 'Alternativa/independiente, Rock', 5680, 01-01-2002, 4.5),
+('Butterflies and Hurricanes', 'Alternativa/independiente', 7593, 01-01-2003, 4.8),
+('Bombardero', 'rock', 2535, 01-01-2001, 4.5),
+('Pardon Me', 'Nu metal', 6482, 01-01-2004, 3.9),
+('I Bet You Look Good On The Dance Floor', 'Alternativa/independiente, Rock', 5642, 01-01-2005, 4.5),
+('I need your love', 'Electro house', 9875, 01-01-2012, 4),
+('Runaway (U & I)', 'House', 11354, 01-01-2015, 4.5),
+('Si Me Voy', 'rock', 1687, 01-01-2010, 3.5),
 
 
-INSERT INTO album (first_name, last_name, activo, correo, contrasena, verificado,informacion) VALUES
+INSERT INTO album (nombre, fecha) VALUES
+('Weapons',01-01-2012),
+('Around the Fur',01-01-2001),
+('Does This Look Infected?',01-01-2002),
+('Absolution',01-01-2003),
+('Bombardero',01-01-2001),
+('Live in Japan 2004',01-01-2004),
+('Whatever People Say I Am, That\'s What I\'m Not',01-01-2006),
+('18 Months',01-01-2012),
+('Pharmacy',01-01-2015),
+('Eres Nadie EP',01-01-2010),
