@@ -1,95 +1,145 @@
 
 <html>
-<head>
-<title>Artista</title>
-</head>
-<body>
-	<table class=>
-		<thead>
-		</thead>
+	<head>
+		<meta charset = 'UTF-8'>
+		<title> List-n </title>
 		
-		<tbody>
-			<tr>
-				<th>ID</th>
-				<td>{{ artista.id }}</td>
-			</tr>
-			<tr>
-				<th>First Name</th>
-				<td>{{ artista.firstName }}</td>
-			</tr>
-			<tr>
-				<th>Last Name</th>
-				<td>{{ artista.lastName }}</td>
-			</tr>
-			<tr>
-				<th>Correo</th>
-				<td>{{ artista.correo }}</td>
-			</tr>
-			<tr>
-				<th>Activo</th>
-				<td>{{ artista.activo }}</td>
-			</tr>
-			<tr>
-				<th>Verificado</th>
-				<td>{{ artista.verificado }}</td>
-			</tr>
-			<tr>
-				<th>Informacion</th>
-				<td>{{ artista.informacion }}</td>
-			</tr>
-			<tr>
-				<th>Albumes</th>
-				<td>
-					<ul>
-				{% for album in artista.albumes %}
-					<li><a href="album?id={{ album.id }}">{{album.nombre}}</a></li>
-				{% endfor %}
-					</ul>
-				</td>
-			</tr>
-			<tr>
-				<th>Artistas Seguidores</th>
-				<td>
-					<ul>
-				{% for a in artista.AArtistasSeguidores %}
-					<li><a href="artista?id={{ a.id }}">{{a.firstName}} {{a.lastName}}</a></li>
-				{% endfor %}
-					</ul>
-				</td>
-			</tr>
-			<tr>
-				<th>Usuarios Seguidores</th>
-				<td>
-					<ul>
-				{% for u in artista.AUsuariosSeguidores %}
-					<li><a href="usuario?id={{ u.id }}">{{u.firstName}} {{u.lastName}}</a></li>
-				{% endfor %}
-					</ul>
-				</td>
-			</tr>
-			<tr>
-				<th>Artistas Seguidos</th>
-				<td>
-					<ul>
-				{% for a in artista.AArtistasSeguidos %}
-					<li><a href="artista?id={{ a.id }}">{{a.firstName}} {{a.lastName}}</a></li>
-				{% endfor %}
-					</ul>
-				</td>
-			</tr>
-			<tr>
-				<th>Usuarios Seguidos</th>
-				<td>
-					<ul>
-				{% for u in artista.AUsuariosSeguidos %}
-					<li><a href="usuario?id={{ u.id }}">{{u.firstName}} {{u.lastName}}</a></li>
-				{% endfor %}
-					</ul>
-				</td>
-			</tr>
-        </tbody>
-      </table>
-      <br />
-      <a href="agregar-artista?id={{person.id}}">Modificar</a> |<a href="agregar-artista">Agregar Nuevo Artista</a> | <a href="artista">Listar</a>
-</body>
+		<meta name = "viewport" content = 'width = device-width, user-scalable = no, initial-scale = 1.0, maximum-scale = 1.0, minimum-scale = 1.0'>
+		<link rel = "stylesheet" href = 'https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css' integrity = 'sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7' crossorigin = 'anonymous'>
+		<link rel = "stylesheet" href = "https://dl.dropboxusercontent.com/s/nq12hgjs93bp6kl/estilos.css" type = "text/css">
+	</head>
+	
+	<body>
+		<div class = "container-fluid color-black">
+			<div class = "container">
+				<div class = "row">
+					<div class = 'col-sm-8'> </div>
+					<div class = 'col-sm-3'>
+						<h2 class = "text-right"> Usuario </h2> <br>
+					</div>
+					<div class = 'col-sm-1'>
+						<img src = "https://s26.postimg.org/ekjb8woh5/icon_user.png" class = "img-responsive">
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class = "container color-white">
+			<div class = "row">
+				<div class = 'col-sm-9 logo'>
+					<h1 class = "color-black"> &nbsp; Artista </h1>
+					<img src = "https://s26.postimg.org/c607k4ijt/banner_artist.png" class = "img-responsive">
+					<div class = "table-responsive">
+						<table class = "table">
+							<thead>
+							</thead>
+							
+							<tbody>
+								<tr>
+									<th>ID</th>
+									<td>{{ artista.id }}</td>
+								</tr>
+								<tr>
+									<th>Nombres</th>
+									<td>{{ artista.firstName }}</td>
+								</tr>
+								<tr>
+									<th>Apellidos</th>
+									<td>{{ artista.lastName }}</td>
+								</tr>
+								<tr>
+									<th>Correo</th>
+									<td>{{ artista.correo }}</td>
+								</tr>
+								<tr>
+									<th>Activo</th>
+									<td>{{ artista.activo }}</td>
+								</tr>
+								<tr>
+									<th>Verificado</th>
+									<td>{{ artista.verificado }}</td>
+								</tr>
+								<tr>
+									<th>Informacion</th>
+									<td>{{ artista.informacion }}</td>
+								</tr>
+								<tr>
+									<th>Albumes</th>
+									<td>
+										<ul>
+									{% for album in artista.albumes %}
+										<li><a href="album?id={{ album.id }}">{{album.nombre}}</a></li>
+									{% endfor %}
+										</ul>
+									</td>
+								</tr>
+								<tr>
+									<th>Artistas Seguidores</th>
+									<td>
+										<ul>
+									{% for a in artista.AArtistasSeguidores %}
+										<li><a href="artista?id={{ a.id }}">{{a.firstName}} {{a.lastName}}</a></li>
+									{% endfor %}
+										</ul>
+									</td>
+								</tr>
+								<tr>
+									<th>Usuarios Seguidores</th>
+									<td>
+										<ul>
+									{% for u in artista.AUsuariosSeguidores %}
+										<li><a href="usuario?id={{ u.id }}">{{u.firstName}} {{u.lastName}}</a></li>
+									{% endfor %}
+										</ul>
+									</td>
+								</tr>
+								<tr>
+									<th>Artistas Seguidos</th>
+									<td>
+										<ul>
+									{% for a in artista.AArtistasSeguidos %}
+										<li><a href="artista?id={{ a.id }}">{{a.firstName}} {{a.lastName}}</a></li>
+									{% endfor %}
+										</ul>
+									</td>
+								</tr>
+								<tr>
+									<th>Usuarios Seguidos</th>
+									<td>
+										<ul>
+									{% for u in artista.AUsuariosSeguidos %}
+										<li><a href="usuario?id={{ u.id }}">{{u.firstName}} {{u.lastName}}</a></li>
+									{% endfor %}
+										</ul>
+									</td>
+								</tr>
+							</tbody>
+						  </table>
+					</div>
+					
+					<div class = 'col-sm-4 logo'>
+						<a href="agregar-artista?id={{person.id}}" class = "btn btn-primary btn-block">Modificar</a>
+					</div>
+					<div class = 'col-sm-4 logo'>
+						<a href="agregar-artista" class = "btn btn-primary btn-block"> Agregar nuevo artista </a>
+					</div>
+					<div class = 'col-sm-4 logo'>
+						<a href="artista" class = "btn btn-primary btn-block">Listar</a>
+					</div>
+				</div>
+				<div class = 'col-sm-3 color-black'>
+					<button type = "button" class = "btn btn-default btn-square btn-block"> Cuenta </button>
+					<button type = "button" class = "btn btn-default btn-square btn-block"> Canciones </button>
+					<button type = "button" class = "btn btn-default btn-square btn-block"> Albumes </button>
+					<button type = "button" class = "btn btn-default btn-square btn-block"> Top 10 </button>
+					<button type = "button" class = "btn btn-default btn-square btn-block"> Playlists </button>
+					<button type = "button" class = "btn btn-default btn-square btn-block"> Siguiendo </button>
+					<button type = "button" class = "btn btn-default btn-square btn-block"> Seguidores </button>
+					<br>
+					<img src = "https://s26.postimg.org/c1xm882qx/banner.png" class = "img-responsive">
+					<br>
+				</div>
+			</div>
+		</div>
+	</body>
 </html>
