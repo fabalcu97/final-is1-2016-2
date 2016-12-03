@@ -10,7 +10,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import domain.Album;
 import domain.Artista;
+import domain.Cancion;
 import domain.Usuario;
 import repository.UsuarioRepository;
 import service.ArtistaService;
@@ -32,18 +34,35 @@ public class UsuarioController {
 	CancionService cancionService;
 	
 	
+	//Busquedas!	
+	@RequestMapping(value = "/buscar-cancion", method = RequestMethod.GET)
+	String cancionEncontrada(Cancion cancion, ModelMap model){
+		return "cancion";
+	}
+	
+	@RequestMapping(value = "/buscar-usuario", method = RequestMethod.GET)
+	String usuarioEncontrado(Usuario usuario, ModelMap model){
+		return "usuario";
+	}
+	
+	@RequestMapping(value = "/buscar-artista", method = RequestMethod.GET)
+	String artistaEncontrado(Artista artista, ModelMap model){
+		return "cancion";
+	}
+	
+	@RequestMapping(value = "/buscar-album", method = RequestMethod.GET)
+	String albumEncontrado(Album album, ModelMap model){
+		return "cancion";
+	}
+	
+	//Busquedas!
+	
 	@RequestMapping(value = "/home-admin", method = RequestMethod.GET)
 	String goAdmin(ModelMap model){
 		return "home-admin";
 	}
 	String homeAdmin(ModelMap model){
 		return "home-admin";
-	}
-	
-	@RequestMapping(value = "/cancion-list", method = RequestMethod.GET)
-	String showCanciones(ModelMap model){
-		model.addAttribute("canciones", cancionService.getCanciones());
-		return "cancion-list";
 	}
 	
 	@RequestMapping(value = "/mejores-canciones", method = RequestMethod.GET)

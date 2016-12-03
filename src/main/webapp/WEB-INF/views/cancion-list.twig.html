@@ -2,22 +2,33 @@
 		<div class = "container color-white">
 			<div class = "row">
 				<div class = 'col-sm-9 logo'>
+				
+					<audio src="/uploads/{{cancion_rep.nombre}}.mp3" controls autoplay>
+							<p>Tu navegador no implementa el elemento audio.</p>
+					</audio>
 					<h1 class = "color-black"> &nbsp; Canciones </h1>
 					<img src = "https://s26.postimg.org/ozy9dgvzd/banner_song.png" class = "img-responsive">
-					<table class = "table">
+					<table class = "table">	
 						<tr>
 							<th> Nombres </th>
 						</tr>
 						
 						{% for cancion in canciones %}
 						<tr>
-							<td> {{ cancion.nombre }} </td>
+							<td> {{ cancion.id }} </td>
+							<td> <a href="cancion?id={{ cancion.id }}">{{ cancion.nombre }} </a></td>
+							<td> {{ cancion.reproducciones }} </td>
+							<td>
+								<button type="button" onclick="location.href='cancion-list?id={{cancion.id}}';" class = "btn btn-primary btn-block">Play</button>
+							</td>
 						</tr>
 						{% endfor %}
 					</table>
+					<br />
+     				<a href="agregar-cancion">Agregar Nueva Cancion</a>
 				</div>
 				{% include 'sidebar.html' %}
 			</div>
 		</div>
 	</body>
-</html>
+</html>tml>
