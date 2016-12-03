@@ -22,11 +22,17 @@ public class AlbumController {
 	@Autowired
 	AlbumService albumService;
 	
+	@RequestMapping(value = "/album-list", method = RequestMethod.GET)
+	String showAlbum(ModelMap model) {
+		model.addAttribute("albumes",albumService.getAll());
+		return "album-list";
+	}
+	
 	@RequestMapping(value = "/album", method = RequestMethod.POST)
 	String saveAlbum(@ModelAttribute Album album, ModelMap model) {
 		System.out.println("saving: " + album.getId());
 		albumService.save(album);
-		return showAlbum(album.getId(), model);
+		return showAlbum(model);
 	}
 	@RequestMapping(value = "/agregar-album", method = RequestMethod.GET)
 	String addNewAlbum(@RequestParam(required = false) Long id, ModelMap model) {

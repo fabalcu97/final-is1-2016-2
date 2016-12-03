@@ -6,8 +6,10 @@ import javax.persistence.Entity;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
+import javax.persistence.Table;
 
 @Entity
+@Table(name = "playlist")
 public class Playlist extends ListaCanciones implements BaseEntity<Long> {
 
 	@ManyToOne

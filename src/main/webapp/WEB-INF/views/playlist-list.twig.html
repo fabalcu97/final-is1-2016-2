@@ -1,8 +1,8 @@
-   {% include 'header.html' %}
-    <div class = "container color-white">
+{% include 'header.html' %}
+		<div class = "container color-white">
 			<div class = "row">
 				<div class = 'col-sm-9 logo'>
-					<h1 class = "color-black"> &nbsp; Albumes </h1>
+					<h1 class = "color-black"> &nbsp; Playlists </h1>
 					<img src = "https://s26.postimg.org/485sih59l/banner_album_title.png" class = "img-responsive">
 					<table class="table">
 						<thead>
@@ -13,17 +13,17 @@
 							</tr>
 						</thead>
 						<tbody>
-							{% for album in albumes %}
+							{% for playlist in playlists %}
 							<tr>
-								<td> {{ album.id }} </td>
-								<td> {{ album.nombre }} </td>
-								<td><a href="album?id={{ album.id }}">Ver</a> | <a href="agregar-album?id={{album.id }}">Modificar</a> </td>
+								<td> {{ playlist.id }} </td>
+								<td> {{ playlist.nombre }} </td>
+								<td><a href="playlist?id={{ playlist.id }}">Ver</a> | <a href="agregar-playlist?id={{playlist.id }}">Modificar</a> </td>
 							</tr>
 							{% endfor %}
 						</tbody>
 					</table>
 					<br />
-     				<a href="agregar-album">Agregar Nuevo Album</a>
+     				<a href="agregar-playlist">Agregar Nuevo Playlist</a>
 				</div>
 				{% include 'sidebar.html' %}
 			</div>

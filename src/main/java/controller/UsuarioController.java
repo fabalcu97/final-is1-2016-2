@@ -31,14 +31,25 @@ public class UsuarioController {
 	@Autowired
 	CancionService cancionService;
 	
+	
+	@RequestMapping(value = "/home-admin", method = RequestMethod.GET)
+	String goAdmin(ModelMap model){
+		return "home-admin";
+	}
 	String homeAdmin(ModelMap model){
 		return "home-admin";
+	}
+	
+	@RequestMapping(value = "/cancion-list", method = RequestMethod.GET)
+	String showCanciones(ModelMap model){
+		model.addAttribute("canciones", cancionService.getCanciones());
+		return "cancion-list";
 	}
 	
 	@RequestMapping(value = "/mejores-canciones", method = RequestMethod.GET)
 	String mejoresCanciones(ModelMap model){
 		model.addAttribute("canciones", cancionService.getMejores());
-		return "mejores-canciones";
+		return "cancion-list";
 	}
 	
 	@RequestMapping(value = "/home", method = RequestMethod.POST)

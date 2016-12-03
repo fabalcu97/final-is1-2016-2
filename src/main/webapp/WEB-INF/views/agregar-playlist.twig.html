@@ -7,15 +7,15 @@
 				</div>
 				<div class = 'col-sm-6 logo'>
 					<br>
-					<h1 class = "color-black"> &nbsp; Nuevo album </h1>
-					<form action = "album" method = "POST">
+					<h1 class = "color-black"> &nbsp; Nuevo Playlist </h1>
+					<form action = "playlist-list" method = "POST">
 						<div class = "form-group">	
 							<!-- <label for = "id"> ID </label>  -->
-							<input type = "hidden" name = "id" value = "{{album.id}}" /> {{album.id}}
+							<input type = "hidden" name = "id" value = "{{playlist.id}}" /> {{album.id}}
 						</div>
 						<div class = "form-group">
 							<!-- <label for = "nombre" class = "color-black"> Nombre </label> -->
-							<input type = "text" class = "form-control" name = "nombre" placeholder = "Ingrese el nombre del album">
+							<input type = "text" class = "form-control" name = "nombre" placeholder = "Ingrese el nombre del playlist">
 						</div>
 						<div class = 'col-sm-6'>
 							<button type = "submit" class = "btn btn-primary btn-block"> Guardar </button>
@@ -25,7 +25,7 @@
 						</div>
 					</form>
 				</div>
-			{% include 'sidebar.html' %}
+				{% include 'sidebar.html' %}
 			</div>
 		</div>
 	</body>
