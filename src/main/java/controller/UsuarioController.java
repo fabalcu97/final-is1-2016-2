@@ -40,12 +40,6 @@ public class UsuarioController {
 		return "home-admin";
 	}
 	
-	@RequestMapping(value = "/cancion-list", method = RequestMethod.GET)
-	String showCanciones(ModelMap model){
-		model.addAttribute("canciones", cancionService.getCanciones());
-		return "cancion-list";
-	}
-	
 	@RequestMapping(value = "/mejores-canciones", method = RequestMethod.GET)
 	String mejoresCanciones(ModelMap model){
 		model.addAttribute("canciones", cancionService.getMejores());
