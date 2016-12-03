@@ -60,16 +60,22 @@ public class UsuarioController {
 			return "index";
 		}
 		
+		model.addAttribute("usuario", usuario);
+		model.addAttribute("artista", artista);
+		
 		if(usuario==null && artista!=null){
 			model.addAttribute("rank", "artista");
 			
 		}
 		else if(artista==null && usuario!=null){
-			if(usuario.getFirstName().equals("admin")){		
+			if(usuario.getFirstName().equals("admin")){
+				model.addAttribute("rank", "admin");
 				return homeAdmin(model);
 			}
 			else{
+				System.out.println("OJO: " + usuario.getId());
 				model.addAttribute("rank", "usuario");
+				return "home-usuario";
 			}
 		}
 		return "home";

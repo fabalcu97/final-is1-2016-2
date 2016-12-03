@@ -21,11 +21,18 @@
 							<td>
 								<button type="button" onclick="location.href='cancion-list?id={{cancion.id}}';" class = "btn btn-primary btn-block">Play</button>
 							</td>
+							<td>
+								<select>
+								{% for playlist in uplaylists %}
+								  <option onclick="location.href='agregar-a-playlist?idc={{cancion.id}}&idp={{playlist.id}}&idu={{playlist.id}}&&ida={{playlist.id}}';">{{playlist.nombre}}</option>
+								{% endfor %}
+								</select>
+							</td>
 						</tr>
 						{% endfor %}
 					</table>
 					<br />
-     				<a href="agregar-cancion">Agregar Nueva Cancion</a>
+     				{% if rank=="artista" %}<a href="agregar-cancion?artid={{id}}&rank={{rank}}">Agregar Nueva Cancion</a>{% endif %}
 				</div>
 				{% include 'sidebar.html' %}
 			</div>

@@ -36,7 +36,7 @@ public class Usuario extends Person implements BaseEntity<Long>{
 	@Override
 	public Long getId() {
 		// TODO Auto-generated method stub
-		return null;
+		return super.id;
 	}
 
 	@Override

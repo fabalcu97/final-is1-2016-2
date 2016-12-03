@@ -26,9 +26,10 @@ public class jpaUsuarioRepository extends JpaBaseRepository<Usuario, Long> imple
 	public Usuario login(String correo, String contraseña) {
 		String jpaQuery = "SELECT a FROM Usuario a WHERE a.correo = :correo AND a.contraseña = :contraseña";
 		TypedQuery<Usuario> query = entityManager.createQuery(jpaQuery, Usuario.class);
+		System.out.println("Hice consulta");
 		query.setParameter("correo", correo);
 		query.setParameter("contraseña", contraseña);
-		System.out.println("Esto es lo que devuelve : " + getFirstResult(query).getFirstName());
+		//System.out.println("Esto es lo que devuelve : " + getFirstResult(query).getFirstName());
 		return getFirstResult(query);
 	}
 

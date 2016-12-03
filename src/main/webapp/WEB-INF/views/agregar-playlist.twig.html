@@ -8,10 +8,14 @@
 				<div class = 'col-sm-6 logo'>
 					<br>
 					<h1 class = "color-black"> &nbsp; Nuevo Playlist </h1>
-					<form action = "playlist-list" method = "POST">
+					<form action = "playlist" method = "POST">
 						<div class = "form-group">	
 							<!-- <label for = "id"> ID </label>  -->
-							<input type = "hidden" name = "id" value = "{{playlist.id}}" /> {{album.id}}
+							<input type = "hidden" name = "id" value = "{{playlist.id}}" /> {{playlist.id}}
+						</div>
+						<div class = "form-group">	
+							<!-- <label for = "id"> ID </label>  -->
+							<input type = "hidden" name = "autor" value = "{{usuario.id}}" /> {{usuario.id}}
 						</div>
 						<div class = "form-group">
 							<!-- <label for = "nombre" class = "color-black"> Nombre </label> -->

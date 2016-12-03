@@ -1,9 +1,16 @@
 		<div class = 'col-sm-3 color-black'>
 			<button onclick="location.href='home-admin';" type = "button" class = "btn btn-default btn-square btn-block"> Cuenta </button>
-			<button onclick="location.href='cancion-list';" type = "button" class = "btn btn-default btn-square btn-block"> Canciones </button>
+			<form action='cancion' method='GET'>
+			<button type="submit" class = "btn btn-default btn-square btn-block"> Canciones </button>
+			</form>
 			<button onclick="location.href='album-list';" type = "button" class = "btn btn-default btn-square btn-block"> Albumes </button>
 			<button onclick="location.href='mejores-canciones';" type = "button" class = "btn btn-default btn-square btn-block"> Top 10 </button>
-			<button onclick="location.href='playlist-list';" type = "button"  class = "btn btn-default btn-square btn-block"> Playlists </button>
+			{% if rank == "usuario" %}
+			<form action='playlist' method='GET'>
+			<button type = "submit"  class = "btn btn-default btn-square btn-block"> Playlists </button>
+			</form>
+			<button onclick="location.href='favoritas';" type = "button"  class = "btn btn-default btn-square btn-block"> Favoritas </button>
+			{% endif %}
 			<button type = "button" class = "btn btn-default btn-square btn-block"> Siguiendo </button>
 			<button type = "button" class = "btn btn-default btn-square btn-block"> Seguidores </button>
 			<br>
