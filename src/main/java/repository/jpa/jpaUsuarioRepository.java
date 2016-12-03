@@ -1,5 +1,7 @@
 package repository.jpa;
 
+import java.util.Collection;
+
 import javax.persistence.TypedQuery;
 
 import org.springframework.stereotype.Repository;
@@ -26,6 +28,7 @@ public class jpaUsuarioRepository extends JpaBaseRepository<Usuario, Long> imple
 		TypedQuery<Usuario> query = entityManager.createQuery(jpaQuery, Usuario.class);
 		query.setParameter("correo", correo);
 		query.setParameter("contraseña", contraseña);
+		System.out.println("Esto es lo que devuelve : " + getFirstResult(query).getFirstName());
 		return getFirstResult(query);
 	}
 

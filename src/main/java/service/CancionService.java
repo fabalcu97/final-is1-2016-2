@@ -19,4 +19,8 @@ public class CancionService {
 	public Collection<Cancion> getCanciones(){
 		return cancionRepository.getTodo();
 	}
+	
+	public Collection<Cancion> getMejores(){
+		return cancionRepository.topTen();
+	}
 }

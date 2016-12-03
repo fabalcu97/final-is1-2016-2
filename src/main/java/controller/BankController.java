@@ -86,40 +86,4 @@ public class BankController {
 		model.addAttribute("artista", artista);
 		return "index";
 	}
-	
-	@RequestMapping(value = "/home", method = RequestMethod.POST)
-	String login(@ModelAttribute Usuario usuario, @ModelAttribute Artista artista, ModelMap model) {
-		usuario = usuarioService.login(usuario.getCorreo(), usuario.getContraseña());
-		artista = artistaService.login(artista.getCorreo(), artista.getContraseña());
-		
-		if(usuario==null && artista==null){
-			
-			usuario = new Usuario();
-			artista = new Artista();
-			model.addAttribute("usuario", usuario);
-			model.addAttribute("artista", artista);
-			return "index";
-		}
-		
-		if(usuario==null && artista!=null){
-			model.addAttribute("rank", "artista");
-			
-		}
-		else if(artista==null && usuario!=null){
-			
-			if(usuario.getFirstName()=="admin"){
-				model.addAttribute("rank", "administrador");
-			}
-			else{
-				model.addAttribute("rank", "usuario");
-			}
-		}
-		
-		return "home";
-	}
-	
-	@RequestMapping(value = "/register", method = RequestMethod.GET)
-	String register(ModelMap model) {
-		return "register";
-	}
 }

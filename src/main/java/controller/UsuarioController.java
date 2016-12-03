@@ -13,6 +13,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 import domain.Artista;
 import domain.Usuario;
 import repository.UsuarioRepository;
+import service.ArtistaService;
+import service.CancionService;
 import service.UsuarioService;
 
 @Controller
@@ -22,13 +24,63 @@ public class UsuarioController {
 	UsuarioRepository usuarioRepository;
 	@Autowired
 	UsuarioService usuarioService;
-
+	
+	@Autowired
+	ArtistaService artistaService;
+	
+	@Autowired
+	CancionService cancionService;
+	
+	String homeAdmin(ModelMap model){
+		return "home-admin";
+	}
+	
+	@RequestMapping(value = "/mejores-canciones", method = RequestMethod.GET)
+	String mejoresCanciones(ModelMap model){
+		model.addAttribute("canciones", cancionService.getMejores());
+		return "mejores-canciones";
+	}
+	
+	@RequestMapping(value = "/home", method = RequestMethod.POST)
+	String login(@ModelAttribute Usuario usuario, @ModelAttribute Artista artista, ModelMap model) {
+		usuario = usuarioService.login(usuario.getCorreo(), usuario.getContraseña());
+		artista = artistaService.login(artista.getCorreo(), artista.getContraseña());
+		
+		if(usuario==null && artista==null){
+			
+			usuario = new Usuario();
+			artista = new Artista();
+			model.addAttribute("usuario", usuario);
+			model.addAttribute("artista", artista);
+			return "index";
+		}
+		
+		if(usuario==null && artista!=null){
+			model.addAttribute("rank", "artista");
+			
+		}
+		else if(artista==null && usuario!=null){
+			if(usuario.getFirstName().equals("admin")){		
+				return homeAdmin(model);
+			}
+			else{
+				model.addAttribute("rank", "usuario");
+			}
+		}
+		return "home";
+	}
+	
+	@RequestMapping(value = "/register", method = RequestMethod.GET)
+	String register(ModelMap model) {
+		return "register";
+	}
+	
 	@RequestMapping(value = "/usuario-list", method = RequestMethod.GET)
 	String showList(ModelMap model) {
 	model.addAttribute("usuarios", usuarioService.getAll());
-	return "usuario-list";
-				
+	return "usuario-list";			
 	}
+	
 	
 	@RequestMapping(value = "/usuario-list", method = RequestMethod.POST)
 	String showList(Usuario usuario , ModelMap model) {
