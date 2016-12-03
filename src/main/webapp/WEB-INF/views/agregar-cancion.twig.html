@@ -22,25 +22,23 @@
 				<div class = 'col-sm-4'> </div>
 				<div class = 'col-sm-4'>
 					<h1> Agregar Cancion </h1>
-					<form action = "cancion-list" method = "POST">
+					<form action = "cancion" method = "POST">
 						<div class = "form-group">	
 							<label for = "id"> ID </label>
-							<input type = "hidden" name = "id" value = "{{cancion.id}}" /> {{usuario.id}}
+							<input type = "hidden" name = "id" value = "{{cancion.id}}" /> {{cancion.id}}
 						</div>
 						<div class = "form-group">
-							<label for = "first_name"> Nombres </label>
+							<label for = "first_name"> Calificacion </label>
 							<input type = "text" class = "form-control" name = "calificacion_prom" placeholder = "Ingrese la calificacion">
 						</div>
 						<div class = "form-group">
-							<label for = "last_name"> Apellidos </label>
+							<label for = "last_name"> Genero </label>
 							<input type = "text" class = "form-control" name = "genero" placeholder = "Ingrese genero">
 						</div>
 						<div class = "form-group">
-							<label for = "contraseÃ±a"> Contraseña </label>
-							<input type = "password" class = "form-control" name = "nombre" placeholder = "Ingrese nombre">
-						</div>
-						
-						<input type = "hidden" name = "activo" value = "True" />
+							<label for = "last_name"> Nombre </label>
+							<input type = "text" class = "form-control" name = "nombre" placeholder = "Ingrese Nombre">
+						</div>						
 						
 						<div class = 'col-sm-6'>
 							<button type = "submit" class = "btn btn-primary btn-block"> Registrarse </button>

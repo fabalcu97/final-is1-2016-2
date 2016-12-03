@@ -16,9 +16,11 @@ public class jpaCancionRepository extends JpaBaseRepository<Cancion, Long> imple
 
 	@Override
 	public Cancion findById(Long id) {
+		System.out.println("Idea" + id);
 		String jpaQuery = "SELECT a FROM Cancion a WHERE a.id = :id";
 		TypedQuery<Cancion> query = entityManager.createQuery(jpaQuery, Cancion.class);
 		query.setParameter("id", id);
+		//System.out.println(getFirstResult(query).getNombre());
 		return getFirstResult(query);
 	}
 	
