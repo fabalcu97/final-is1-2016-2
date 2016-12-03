@@ -1,0 +1,35 @@
+<html>
+<head>
+<title>Cancion</title>
+</head>
+<body>
+	<form enctype="multipart/form-data" action="cancion" method="POST">
+		<table>
+			<tbody>
+				<tr>
+					<td>ID</td>
+					<td><input type="hidden" name="id" value="{{cancion.id}}" />{{cancion.id}}</td>
+				</tr>
+				
+				<tr>
+					<td>Nombre</td>
+					<td><input type="text" name="nombre"/></td>
+				</tr>
+				
+				<tr>
+					<td>Género</td>
+					<td><input type="text" name="genero"/></td>
+				</tr>
+				
+				<tr>
+					<td>Archivo</td>
+					<td><input type="file" name="file"/></td>
+				</tr>
+			</tbody>
+		</table>
+		<br>
+		<input type="submit" value="Save" />
+		<input type="button" value="Cancel" onclick="history.back();" />
+	</form>
+</body>
+</html>

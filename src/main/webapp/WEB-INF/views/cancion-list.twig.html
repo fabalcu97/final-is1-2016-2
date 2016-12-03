@@ -26,6 +26,10 @@
 		<div class = "container">
 			<div class = "row">
 				<div class = 'col-sm-9 logo'>
+				
+					<audio src="/uploads/{{cancion_rep.nombre}}.mp3" controls autoplay>
+							<p>Tu navegador no implementa el elemento audio.</p>
+					</audio>
 					<table class=>
 						<tr>
 							<th> Canciones </th>
@@ -33,10 +37,17 @@
 						
 						{% for cancion in canciones %}
 						<tr>
-							<td> {{ cancion.nombre }} </td>
+							<td> {{ cancion.id }} </td>
+							<td> <a href="cancion?id={{ cancion.id }}">{{ cancion.nombre }} </a></td>
+							<td> {{ cancion.reproducciones }} </td>
+							<td>
+								<button type="button" onclick="location.href='cancion-list?id={{cancion.id}}';" class = "btn btn-primary btn-block">Play</button>
+							</td>
 						</tr>
 						{% endfor %}
 					</table>
+					<br />
+     				<a href="agregar-cancion">Agregar Nueva Cancion</a>
 				</div>
 				<div class = 'col-sm-3 color-black'>
 					<button type = "button" class = "btn btn-default btn-square btn-block"> Cuenta </button>

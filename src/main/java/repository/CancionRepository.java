@@ -13,4 +13,5 @@ public interface CancionRepository extends BaseRepository<Cancion, Long> {
 	Collection<Cancion> getTodo();
 	Collection<Cancion> findByAlbumId(Long albumId);
 	Collection<Cancion> topCien();
+	void update_rep(Long id, int rep);
 }

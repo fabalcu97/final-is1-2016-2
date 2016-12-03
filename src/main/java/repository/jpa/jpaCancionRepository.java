@@ -60,4 +60,13 @@ public class jpaCancionRepository extends JpaBaseRepository<Cancion, Long> imple
 		return query.getResultList();
 	}
 
+	@Override
+	public void update_rep(Long id, int rep) {
+		String jpaQuery = "UPDATE FROM Cancion a SET a.reproducciones = :rep WHERE a.id = :id";
+		TypedQuery<Cancion> query = entityManager.createQuery(jpaQuery, Cancion.class);
+		query.setParameter("id", id);
+		query.setParameter("rep", rep);
+		return;
+	}
+
 }
