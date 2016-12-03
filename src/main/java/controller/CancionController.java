@@ -8,8 +8,6 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.Collection;
 
-
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.Resource;
 import org.springframework.core.io.UrlResource;
@@ -81,6 +79,8 @@ public class CancionController {
 		} catch (FileAlreadyExistsException e) {
             
         }
+		//Files.createDirectory(rootLocation);
+		System.out.println(file.getOriginalFilename());
 		Files.copy(file.getInputStream(), rootLocation.resolve(file.getOriginalFilename()));
 		//storageService.store(file);
 		return showCancion(cancion.getId(), model);
