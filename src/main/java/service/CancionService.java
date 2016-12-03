@@ -34,6 +34,9 @@ public class CancionService {
 		return true;
 	}
 	
+	public Cancion getName(String nombre) {
+		return cancionRepository.findByName(nombre);
+	}
 	
 	public Cancion get(Long id) {
 		return cancionRepository.findById(id);

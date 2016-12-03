@@ -8,7 +8,7 @@ import domain.Usuario;
 public interface CancionRepository extends BaseRepository<Cancion, Long> {
 	
 	Cancion findById(Long id);
-	Collection<Cancion> findByName(String name);
+	Cancion findByName(String nombre);
 	Collection<Cancion> topTen();
 	Collection<Cancion> getTodo();
 	Collection<Cancion> findByAlbumId(Long albumId);

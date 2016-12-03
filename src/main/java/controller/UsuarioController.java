@@ -1,6 +1,7 @@
 package controller;
 
 import java.util.Collection;
+import java.util.HashSet;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -41,8 +42,10 @@ public class UsuarioController {
 	//Busquedas!	
 	@RequestMapping(value = "/buscar-cancion", method = RequestMethod.GET)
 	String cancionEncontrada(@ModelAttribute Cancion cancion, ModelMap model){
-		System.out.println("Id " + cancion.getId());
-		model.addAttribute("canciones", cancionService.get(cancion.getId()));
+		System.out.println("Id " + cancion.getNombre());
+		Collection<Cancion> Dame = new HashSet() ;
+		Dame.add(cancionService.getName(cancion.getNombre()));
+		model.addAttribute("canciones", Dame );
 		return "cancion-list";
 	}
 	

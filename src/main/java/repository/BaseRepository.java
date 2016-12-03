@@ -24,6 +24,7 @@ public interface BaseRepository<T extends BaseEntity<K>, K> {
 
 	Collection<T> findAll();
 
+	
 	T find(K id);
 
 	T find(Class<? extends T> clazz, K id);

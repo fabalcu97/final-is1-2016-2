@@ -40,11 +40,11 @@ public class jpaCancionRepository extends JpaBaseRepository<Cancion, Long> imple
 	}
 
 	@Override
-	public Collection<Cancion> findByName(String name) {
+	public Cancion findByName(String nombre) {
 		String jpaQuery = "SELECT a FROM Cancion a WHERE a.nombre = :nombre";
 		TypedQuery<Cancion> query = entityManager.createQuery(jpaQuery, Cancion.class);
-		query.setParameter("name", name);
-		return query.getResultList();
+		query.setParameter("nombre", nombre);
+		return getFirstResult(query);
 	}
 
 	@Override
@@ -70,5 +70,6 @@ public class jpaCancionRepository extends JpaBaseRepository<Cancion, Long> imple
 		query.setParameter("rep", rep);
 		return;
 	}
+
 
 }
