@@ -1,0 +1,71 @@
+<html>
+<head>
+<title>Cancion</title>
+</head>
+<body>
+	{{path}}
+	<table class=>
+		<thead>
+		</thead>
+		
+		<tbody>
+			<tr>
+				<th>ID</th>
+				<td>{{ cancion.id }}</td>
+			</tr>
+			<tr>
+				<th>Nombre</th>
+				<td>{{ cancion.nombre }}</td>
+			</tr>
+			<tr>
+				<th>Fecha</th>
+				<td>{{ cancion.fecha }}</td>
+			</tr>
+			<tr>
+				<th>Genero</th>
+				<td>{{ cancion.genero }}</td>
+			</tr>
+			<tr>
+				<th>Calificación</th>
+				<td>{{ cancion.calificacion_prom }}</td>
+			</tr>
+			<tr>
+				<th>Reproducciones</th>
+				<td>{{ cancion.reproducciones }}</td>
+			</tr>
+			<tr>
+				<th>Usuarios</th>
+				<td>
+					<ul>
+				{% for usuario in cancion.favoritas %}
+					<li><a href="usuario?id={{ usuario.id }}">{{usuario.firstName}} {{usuario.lastName}}</a></li>
+				{% endfor %}
+					</ul>
+				</td>
+			</tr>
+			<tr>
+				<th>Albumes</th>
+				<td>
+					<ul>
+				{% for album in cancion.albumSongs %}
+					<li><a href="album?id={{ album.id }}">{{album.nombre}}</a></li>
+				{% endfor %}
+					</ul>
+				</td>
+			</tr>
+			<tr>
+				<th>Playlists</th>
+				<td>
+					<ul>
+				{% for playlist in cancion.playlistSongs %}
+					<li><a href="playlist?id={{ playlist.id }}">{{playlist.nombre}}</a></li>
+				{% endfor %}
+					</ul>
+				</td>
+			</tr>
+        </tbody>
+      </table>
+      <br />
+      <a href="agregar-cancion?id={{cancion.id}}">Modificar</a> |<a href="agregar-cancion">Agregar Nueva Cancion</a> | <a href="cancion">Listar</a>
+</body>
+</html>

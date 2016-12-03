@@ -33,10 +33,13 @@
 						
 						{% for cancion in canciones %}
 						<tr>
-							<td> {{ cancion.nombre }} </td>
+							<td> {{ cancion.id }} </td>
+							<td> <a href="cancion?id={{ cancion.id }}">{{ cancion.nombre }} </a></td>
 						</tr>
 						{% endfor %}
 					</table>
+					<br />
+     				<a href="agregar-cancion">Agregar Nueva Cancion</a>
 				</div>
 				<div class = 'col-sm-3 color-black'>
 					<button type = "button" class = "btn btn-default btn-square btn-block"> Cuenta </button>

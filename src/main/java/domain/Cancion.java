@@ -2,14 +2,18 @@ package domain;
 
 import java.util.Collection;
 import java.util.Date;
+import java.awt.Image;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Lob;
 import javax.persistence.ManyToMany;
 import javax.persistence.SequenceGenerator;
+
+import org.hibernate.annotations.Type;
 
 
 @Entity
@@ -34,6 +38,10 @@ public class Cancion implements BaseEntity<Long>{
 	
 	@Column(nullable = false)
 	private int reproducciones;
+
+	@Column(name="audio")
+	@Type(type="org.hibernate.type.BinaryType")
+	private byte[] file;
 	
 	@Column(length = 64)
 	private String genero;
@@ -45,8 +53,7 @@ public class Cancion implements BaseEntity<Long>{
 	
 	@Override
 	public Long getId() {
-		// TODO Auto-generated method stub
-		return null;
+		return id;
 	}
 
 	@Override
