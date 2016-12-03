@@ -53,7 +53,7 @@ public class Cancion implements BaseEntity<Long>{
 	
 	@Override
 	public Long getId() {
-		return id;
+		return this.id;
 	}
 
 	@Override

@@ -1,0 +1,17 @@
+{% macro input(name, value, type) %}
+	<div class = "form-group">	
+		<label for = "id"> {{name}}  </label>
+    	<input type="{{ type|default('text') }}" name="{{ name }}" value="{{ value|e }}" />
+    </div>
+{% endmacro %}
+
+{% macro boton(type,where,accion) %}	
+	<div class = 'col-sm-6'>
+		{% if type == 'submit' %}	
+			<button type = "{{type|default('submit')}}" class = "btn btn-primary btn-block"> {{accion}} </button>
+		{% else %}
+     		<button type = "button" class = "btn btn-primary btn-block" onclick="location.href='{{where}}';"> {{accion}} </button>
+		{% endif %}
+	</div>
+{% endmacro %}
+

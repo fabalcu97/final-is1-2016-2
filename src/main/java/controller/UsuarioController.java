@@ -10,9 +10,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import domain.Album;
 import domain.Artista;
+import domain.Cancion;
 import domain.Usuario;
 import repository.UsuarioRepository;
+import service.AlbumService;
 import service.ArtistaService;
 import service.CancionService;
 import service.UsuarioService;
@@ -31,6 +34,37 @@ public class UsuarioController {
 	@Autowired
 	CancionService cancionService;
 	
+	@Autowired
+	AlbumService albumService;
+	
+	
+	//Busquedas!	
+	@RequestMapping(value = "/buscar-cancion", method = RequestMethod.GET)
+	String cancionEncontrada(@ModelAttribute Cancion cancion, ModelMap model){
+		System.out.println("Id " + cancion.getId());
+		model.addAttribute("canciones", cancionService.get(cancion.getId()));
+		return "cancion-list";
+	}
+	
+	@RequestMapping(value = "/buscar-usuario", method = RequestMethod.GET)
+	String usuarioEncontrado(@ModelAttribute Usuario usuario, ModelMap model){
+		model.addAttribute("usuarios", usuarioService.get(usuario.getId()));
+		return "usuario-list";
+	}
+	
+	@RequestMapping(value = "/buscar-artista", method = RequestMethod.GET)
+	String artistaEncontrado(@ModelAttribute Artista artista, ModelMap model){
+		model.addAttribute("artista", artistaService.get(artista.getId()));
+		return "artista-list";
+	}
+	
+	@RequestMapping(value = "/buscar-album", method = RequestMethod.GET)
+	String albumEncontrado(@ModelAttribute Album album, ModelMap model){
+		model.addAttribute("albumes", albumService.get(album.getId()));
+		return "album-list";
+	}
+	
+	//Busquedas!
 	
 	@RequestMapping(value = "/home-admin", method = RequestMethod.GET)
 	String goAdmin(ModelMap model){
